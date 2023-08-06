@@ -33,7 +33,7 @@ function createSources() {
             const source = await Promise.all([
             mpSdk0.Sensor.createSource(mpSdk0.Sensor.SourceType.SPHERE, {
                 origin: { x: -9, y: 1, z: -1},
-                radius: 2,
+                radius: 10,
                 userData: {
                 id: 'Safety Equipment',
                 },
@@ -51,6 +51,7 @@ function createSources() {
             sensor.showDebug(true);
             }
         })
+    console.log('done creating sources')
 
     mpSdk1.Room.data.subscribe({
         onAdded: async function(index, item, collection) {
@@ -59,7 +60,7 @@ function createSources() {
             const source = await Promise.all([
             mpSdk1.Sensor.createSource(mpSdk1.Sensor.SourceType.SPHERE, {
                 origin: { x: -9, y: 1, z: -1},
-                radius: 2,
+                radius: 10,
                 userData: {
                 id: 'Safety Equipment',
                 },
