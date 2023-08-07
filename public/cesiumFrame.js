@@ -179,8 +179,13 @@ radioButtons.forEach(radioButton => {
     } else if (selectedValue == 'ict') {
       campusModel.show = false;
       ictModel.show = true;
-      tileOption.show = false;
       tileOption.className = 'row'
+    }
+
+    if (defaultTiles.checked) {
+      buildingsTileset.show = true
+    } else {
+      buildingsTileset.show = false
     }
   });
 });
