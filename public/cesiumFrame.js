@@ -142,7 +142,27 @@ const ictModel = viewer.scene.primitives.add(
   })
 );
 
-viewer.flyTo(campusModel);
+// viewer.camera.defaultZoomAmount = 60;
+// viewer.flyTo(ictModel);
+// viewer.camera.zoomOut()
+
+
+viewer.camera.flyTo({
+  destination: new Cesium.Cartesian3(
+    -1641788.2032084605,
+    -3665070.419645348,
+    4939941.015410033
+  ),
+  orientation: {
+    heading: 0.0,
+    pitch: -0.4,
+    roll: 0.0
+  }
+});
+
+
+
+
 
 const radioButtons = document.querySelectorAll('input[name="which_view"]');
 const tileOption = document.getElementById('tileOption');
@@ -174,3 +194,8 @@ defaultTiles.addEventListener('change', event => {
     buildingsTileset.show = false
   }
 })
+
+/* when a key is pressed */
+document.addEventListener('keydown', function(event) {
+  console.log(viewer.scene.camera)
+});

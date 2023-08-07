@@ -79,9 +79,10 @@ form h2 {
 .webgl
 {
     margin-left: 20vw;
+    top: 0;
     width: 80vw;
     height: 100vh;
-    position: fixed;
+    position:fixed;
     outline: none;
 }
 
@@ -120,12 +121,16 @@ h1 {
     position: absolute;
     padding-top: 0.3rem !important;
     padding-bottom: 0.6rem !important;
-    left: 1%;
 
     position: absolute;
     display: inline-block;
     background-color: rgb(255 163 31);
+    border-radius: 0.5rem;
     /* overflow:auto; */
+}
+
+.dropdown span {
+    padding: 0.3rem !important;
 }
 
 .dropdown-content {
@@ -134,14 +139,15 @@ h1 {
     height: 15vh;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     /* z-index: 1000; */
-    overflow:scroll;
+    overflow-y:scroll;
     cursor: pointer;
     padding: 0 !important;
 }
 
 .dropdown-content p {
-    padding: 0.3rem 0rem !important;
+    padding: 0.3rem 0.3rem !important;
     font-size: medium;
+    width:auto;
 }
 
 .dropdown-content p:hover {
@@ -169,8 +175,10 @@ h1 {
     color:white;
     position:absolute;
     border-radius: 1rem;
+    margin-top: 1rem;
+    width: calc(18vw - 2rem);
 
-}
+    padding: 1rem 1rem 1rem 1rem;}
 
 .goto-active {
     left: 0.5vw;
@@ -181,8 +189,13 @@ h1 {
     color:#ffe4c4;
     position:absolute;
 
-    background-color: brown;
+    background-color: darkred;
     border-radius: 1rem;
+    margin-top: 1rem;
+
+    width: calc(18vw - 2rem);
+
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 .goto-back {
@@ -194,14 +207,18 @@ h1 {
     font-size: medium;
     text-align: center;
     border-radius: 1rem;
-
-
-
+    padding: 1rem 1rem 1rem 1rem;
+        margin-top: 1rem;
 
     border-radius: 0 0 2rem 2rem;
+    width: calc(18vw - 2rem);
 
     left: 50vw;
     transform: translateX(-50%);
+}
+
+.goto-back:hover, .goto-active:hover {
+    background-color: rgb(133, 37, 80);
 }
 
 .active {
@@ -227,7 +244,7 @@ h1 {
 }
 
 @media (max-width: 30em) {
-    h1, h2, div, p {
+    h1, h2, div, p, label {
         font-size: smaller !important;
         font-family: 'Roboto', sans-serif;
     }
@@ -248,12 +265,24 @@ h1 {
     }
     .sidenav * {
         width: 36vw;
-        /* enable scroll if overflow */
     }
     .webgl {
         margin-left: 40vw;
-        width: 60vw;
+        width: 70vw;
     }
+
+    .row {
+        width: 50vw !important;
+    }
+
+    label {
+        transform: translateX(-30%) translateY(-60%);
+    }
+
+    .goto-active, .goto-back, .goto-inactive {
+        width: calc(36vw - 2rem);
+    }
+
 }
 
 /* Add this to your CSS or use a stylesheet solution like CSS-in-JS */

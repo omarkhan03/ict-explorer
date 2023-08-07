@@ -41,43 +41,43 @@ function enableGoto() {
 
 floor7.addEventListener('click', () => { 
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 7! -->"
+    goto.innerHTML = "Click for inside view of floor 7! &rarr;"
     selectedFloor = 7
 })
 
 floor6.addEventListener('click', () => { 
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 6! -->"
+    goto.innerHTML = "Click for inside view of floor 6! &rarr;"
     selectedFloor = 6
 })
 
 floor5.addEventListener('click', () => {
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 5! -->"
+    goto.innerHTML = "Click for inside view of floor 5! &rarr;"
     selectedFloor = 5
 })
 
 floor4.addEventListener('click', () => {
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 4! -->"
+    goto.innerHTML = "Click for inside view of floor 4! &rarr;"
     selectedFloor = 4
 })
 
 floor3.addEventListener('click', () => {
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 3! -->"
+    goto.innerHTML = "Click for inside view of floor 3! &rarr;"
     selectedFloor = 3
 })
 
 floor2.addEventListener('click', () => {
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 2! -->"
+    goto.innerHTML = "Click for inside view of floor 2! &rarr;"
     selectedFloor = 2
 })
 
 floor1.addEventListener('click', () => {
     enableGoto()
-    goto.innerHTML = "Click for inside view of floor 1! -->"
+    goto.innerHTML = "Click for inside view of floor 1! &rarr;"
     selectedFloor = 1
 })
 
@@ -127,7 +127,7 @@ function activateMatterport (){
     cesium.className = "inactive"
     dropdowns.className = "inactive"
     goto.className = "goto-active"
-    goto.innerHTML = "<-- Return to outside view"
+    goto.innerHTML = "&larr; Return to outside view"
     navToFloor()
 }
 
