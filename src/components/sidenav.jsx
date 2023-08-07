@@ -1,34 +1,27 @@
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-
 export default function SideNav() {
   return <div class="sidenav">
             <img src="/uofc.png" alt="UofC logo" class="logo"/>
-            <h1 id="header">Campus Explorer + Room Finder</h1>
-          
-            <div class="currently-selected">
-                Selected building:
-                <span id="selected-building">Information and Communications Technology (ICT)</span>
-                <br/>
-                <br/>
-            </div>
-          
-            <div class="dropdowns">
-              <div class="dropdown buildings">
-                  <span>Select building</span>
-                  <div class="dropdown-content">
-                      <p class="b1">Information and Communications Technology (ICT)</p>
-                      <p>Earth Sciences</p>
-                      <p>Mathematical Sciences</p>
-                      <p>-</p>
-                      <p>-</p>
-                      <p>-</p>
-                      <p>-</p>
-                      <p>-</p>
-                      <p>-</p>
-                  </div>
-              </div>
-              
-              <div class="dropdown floors">
+            <h1 id="header">ICT Explorer + Room Finder</h1>
+
+
+            <form>
+            <h2>External view options:</h2>
+                <div className="row">
+                    <input type="radio" id="ict" name="which_view" value="ict" checked="checked"/>
+                    <label for="ict">ICT building only</label>
+                </div>
+                <div className="row">
+                    <input type="radio" id="full" name="which_view" value="full"/>
+                    <label for="full"> Full campus satellite view (loads longer)</label>
+                </div>
+                <div className="row" id="tileOption">
+                    <input type="checkbox" id="tileset" value="none"/>
+                    <label for="tileset">Show default tileset</label>
+                </div>
+            </form>
+
+            <div className="dropdowns">
+                <div class="dropdown floors">
                   <span>Select floor</span>
                   <div class="dropdown-content">
                       <p class="f1">Floor 1</p>
@@ -40,7 +33,9 @@ export default function SideNav() {
                       <p class="f7">Floor 7</p>
                   </div>
               </div>
-          </div>
+            </div>
+
+
           
           <p id="goto" class="goto-inactive">Select a floor</p>
           <p id="error" class="error"></p> 

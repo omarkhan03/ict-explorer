@@ -18,16 +18,43 @@ body
     overflow: hidden;
 }
 
-h1, h2, div, p {
+h1, h2, div, p, label{
     font-size: small;
     font-family: 'Roboto', sans-serif;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    /* make the items squished together */
+    justify-content:left !important;
+    width: 30vw !important;
+    transform: translateX(-20%);
+}
+
+label {
+    color: white;
+    transform: translateX(-40%) translateY(-35%);
+    width: 30vw !important;
+    height: 0.5vw;
+}
+
+form {
+    padding-top: 0rem !important;
+    padding-bottom: 1rem;
+    width: 30vw !important;
+    left: 0.5vw;
+}
+
+form h2 {
+    color: orange;
 }
 
 .sidenav{
     /* flexbox column */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 20vw;
 }
 
@@ -125,14 +152,8 @@ h1 {
     display: block;
 }
 
-.buildings {
-}
-
 .b1 {
     background-color: #ffe4c4;
-}
-
-.floors {
 }
 
 .currently-selected {
@@ -143,19 +164,25 @@ h1 {
 
 .goto-inactive {
     left: 0.5vw;
-
+    font-size: medium;
+    text-align: center;
     color:white;
     position:absolute;
-    font-size: 1.7rem;
+    border-radius: 1rem;
+
 }
 
 .goto-active {
     left: 0.5vw;
+    font-size: medium;
+    text-align: center;
 
     cursor: pointer;
     color:#ffe4c4;
     position:absolute;
-    font-size: 1.7rem;
+
+    background-color: brown;
+    border-radius: 1rem;
 }
 
 .goto-back {
@@ -163,25 +190,19 @@ h1 {
     background-color: black;
     color:white;
     position:absolute;
-    font-size: 1.5rem;
     text-align: center;
+    font-size: medium;
+    text-align: center;
+    border-radius: 1rem;
+
+
+
 
     border-radius: 0 0 2rem 2rem;
 
     left: 50vw;
     transform: translateX(-50%);
 }
-
-.error {
-    font-size: 1.2rem !important;
-    text-align: center;
-    color:darkred;
-    position:absolute;
-    font-size: 1.7rem;
-    left: 70vw;
-    transform: translateX(-50%);
-}
-
 
 .active {
     visibility: visible;
@@ -234,3 +255,59 @@ h1 {
         width: 60vw;
     }
 }
+
+/* Add this to your CSS or use a stylesheet solution like CSS-in-JS */
+.toggle-switch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the switch horizontally */
+    margin: 10px; /* Adjust margin as needed */
+  }
+  
+  .toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .toggle-switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc !important;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white !important;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* Apply different background colors for checked and unchecked states */
+  input:checked + .slider {
+    background-color: #66bb6a !important; /* Change this color for the "on" state */
+  }
+  
+  /* Apply different colors for the slider icon for checked and unchecked states */
+  input:checked + .slider:before {
+    background-color: white !important; /* Change this color for the "on" state */
+    transform: translateX(26px);
+  }
+  
+  
+  
