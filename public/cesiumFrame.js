@@ -180,13 +180,15 @@ radioButtons.forEach(radioButton => {
       campusModel.show = false;
       ictModel.show = true;
       tileOption.className = 'row'
+
+      if (defaultTiles.checked) {
+        buildingsTileset.show = true
+      } else {
+        buildingsTileset.show = false
+      }
+
     }
 
-    if (defaultTiles.checked) {
-      buildingsTileset.show = true
-    } else {
-      buildingsTileset.show = false
-    }
   });
 });
 
