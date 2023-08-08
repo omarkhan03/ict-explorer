@@ -1,4 +1,6 @@
 import { navToFloor } from './matterport.js';
+import { flyToDirectionAndPosition } from './cesiumFrame.js'
+import { flyToInitial } from './cesiumFrame.js'
 
 export let state = 0;
 export let selectedFloor;
@@ -118,17 +120,54 @@ goto.addEventListener('click', () => {
 // This hides everything except for the matterport iframe
 function activateMatterport (){
 
-    if (selectedFloor < 5) {
-        bottomFloorsFrame.className = "webgl"
-    } else {
-        topFloorsFrame.className = "webgl"
+    /*
+
+    direction:
+    {
+        "x": 0.9200000059730695,
+        "y": -0.13855138081700066,
+        "z": -0.3666108343778927
     }
 
-    cesium.className = "inactive"
-    dropdowns.className = "inactive"
-    goto.className = "goto-active"
-    goto.innerHTML = "&larr; Return to outside view"
-    navToFloor()
+    position:
+    {
+        "x": -1641758.8895907598,
+        "y": -3664891.752286862,
+        "z": 4940029.303949921
+    }
+
+    */
+
+    let direction;
+    let position;
+
+    if (selectedFloor < 3) {
+        direction = new Cesium.Cartesian3(0.9333524490626779, -0.28830323482087306, -0.21385614468731529);
+        position = new Cesium.Cartesian3(-1641756.2604049654, -3664877.8571480466, 4940010.406183958);
+    } else if (selectedFloor < 6) {
+        direction = new Cesium.Cartesian3(0.9208569304669825, -0.10765409947640325, -0.374744057293577);
+        position = new Cesium.Cartesian3(-1641759.457647591, -3664885.3889656225, 4940022.071455598);
+    } else {
+        direction = new Cesium.Cartesian3(0.9200000059730695, -0.13855138081700066, -0.3666108343778927);
+        position = new Cesium.Cartesian3(-1641758.8895907598, -3664891.752286862, 4940029.303949921);
+    }
+
+    // Use the function and then execute code after the animation is complete
+    flyToDirectionAndPosition(direction, position).then(() => {
+        if (selectedFloor < 5) {
+            bottomFloorsFrame.className = "webgl"
+        } else {
+            topFloorsFrame.className = "webgl"
+        }
+    
+        cesium.className = "inactive"
+        dropdowns.className = "inactive"
+        goto.className = "goto-active"
+        goto.innerHTML = "&larr; Return to outside view"
+        navToFloor()
+    });
+
+
 }
 
 // This shows everything except for the matterport iframe
@@ -144,6 +183,8 @@ function deactivateMatterport (){
     selectedFloor = null;
     goto.className = "goto-inactive"
     goto.innerHTML = "Select a floor."
+
+    flyToInitial()
 }
 
 

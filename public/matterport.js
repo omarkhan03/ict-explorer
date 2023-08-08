@@ -22,7 +22,6 @@ export function navToFloor() {
     } else {
         mpSdk1.Floor.moveTo(selectedFloor-5)
     }
-
 }
 
 function createSources() {

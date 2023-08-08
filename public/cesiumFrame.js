@@ -22,7 +22,7 @@ viewer.scene.light = new Cesium.DirectionalLight({
     );
   });
 
-
+// The orange buildings that appear when "show default tileset" is clicked
 const buildingsTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings({
     style: new Cesium.Cesium3DTileStyle({
       color: {
@@ -107,24 +107,6 @@ const buildingsTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings({
       },
     })
   }));
-
-// // Hide individual buildings in this area using 3D Tiles Styling language.
-// buildingsTileset.style = new Cesium.Cesium3DTileStyle({
-//     // Create a style rule to control each building's "show" property.
-//     show: {
-//     conditions : [
-//         // Any building that has this elementId will have `show = false`.
-//         ['${elementId} === 13816475', false],
-//         // If a building does not have one of these elementIds, set `show = true`.
-//         [true, true]
-//     ]
-//     },
-//     // Set the default color style for this particular 3D Tileset.
-//     // For any building that has a `cesium#color` property, use that color, otherwise make it white.
-//     color: "Boolean(${feature['cesium#color']}) ? color(${feature['cesium#color']}) : color('#ffffff')"
-// });    
-
-
 buildingsTileset.show = false
 
 
@@ -133,7 +115,6 @@ const campusModel = viewer.scene.primitives.add(
     url: Cesium.IonResource.fromAssetId(1591936)
     })
 );
-
 campusModel.show = false
 
 const ictModel = viewer.scene.primitives.add(
@@ -142,26 +123,21 @@ const ictModel = viewer.scene.primitives.add(
   })
 );
 
-// viewer.camera.defaultZoomAmount = 60;
-// viewer.flyTo(ictModel);
-// viewer.camera.zoomOut()
-
-
-viewer.camera.flyTo({
-  destination: new Cesium.Cartesian3(
-    -1641788.2032084605,
-    -3665070.419645348,
-    4939941.015410033
-  ),
-  orientation: {
-    heading: 0.0,
-    pitch: -0.4,
-    roll: 0.0
-  }
-});
-
-
-
+export function flyToInitial() {
+  viewer.camera.flyTo({
+    destination: new Cesium.Cartesian3(
+      -1641788.2032084605,
+      -3665070.419645348,
+      4939941.015410033
+    ),
+    orientation: {
+      heading: 0.0,
+      pitch: -0.4,
+      roll: 0.0
+    }
+  });
+}
+flyToInitial()
 
 
 const radioButtons = document.querySelectorAll('input[name="which_view"]');
@@ -202,7 +178,35 @@ defaultTiles.addEventListener('change', event => {
   }
 })
 
-/* when a key is pressed */
+export function flyToDirectionAndPosition(direction, position, right = new Cesium.Cartesian3(-0.3304093185324455, -0.7044324036771059, -0.6281756688034167)) {
+  return new Promise((resolve) => {
+    // Calculate the "right" vector as cross product of direction and world up
+    // const right = Cesium.Cartesian3.cross(direction, Cesium.Cartesian3.UNIT_Z, new Cesium.Cartesian3());
+
+    // Calculate the "up" vector as cross product of right and direction
+    const up = Cesium.Cartesian3.cross(right, direction, new Cesium.Cartesian3());
+
+    // Normalize the direction and up vectors
+    Cesium.Cartesian3.normalize(direction, direction);
+    Cesium.Cartesian3.normalize(up, up);
+
+    viewer.camera.flyTo({
+      destination: position,
+      orientation: {
+        direction: direction,
+        up: up,
+      },
+      complete: function() {
+        console.log('done')
+        resolve(); // Resolve the promise when the animation is complete
+      },
+    });
+  });
+}
+
+
+
 document.addEventListener('keydown', function(event) {
   console.log(viewer.scene.camera)
 });
+
