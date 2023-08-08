@@ -19,12 +19,18 @@
   allow="vr"
 ></iframe>
 
+<script
+  type="module"
+  src="/matterport.js"
+></script>
+
+
 <!--	HXI account code:
 	<iframe id="bottom-floors" class="inactive" width="740" height="480" src="/bundle/showcase.html?m=5J3mfjqkVjD&applicationKey=gq2x55e5x50i7h10d8k3uiu6d&play=1&qs=1" frameborder=”0” allowfullscreen allow="vr"></iframe>
     <iframe id="top-floors" class="inactive" width="740" height="480" src="/bundle/showcase.html?m=dNdRhzEGrGY&applicationKey=gq2x55e5x50i7h10d8k3uiu6d&play=1&qs=1" frameborder=”0” allowfullscreen allow="vr"></iframe>
 	-->
 
-<script>
+<script is:inline>
   const showcase0 = document.getElementById("bottom-floors");
   const showcaseWindow0 = showcase0.contentWindow;
   let connected0 = false;
@@ -55,8 +61,3 @@
     console.log("Hello Bundle SDK", mpSdk1, connected0, connected1);
   });
 </script>
-
-<script
-  type="module"
-  src="./matterport.js"
-></script>
