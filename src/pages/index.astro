@@ -1,30 +1,24 @@
 ---
 import CesiumFrame from "../components/cesiumFrame.html";
 import MatterportFrame from "../components/MatterportFrame.astro";
-import App from "../components/sidenav.astro";
+
+import Sidenav from "../components/Sidenav.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>ICT Explorer + Room Finder</title>
+<BaseLayout title="ICT Explorer + Room Finder">
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script
+    slot="head"
+    src="/Cesium.js"
+  ></script>
   <link
+    slot="head"
+    href="/widgets.css"
     rel="stylesheet"
-    href="./style.css"
   />
-</head>
 
-<body>
-  <div
-    class="webgl"
-    id="cesiumContainer"
-  >
-  </div>
-
-  <App />
-  <CesiumFrame />
+  <Sidenav />
   <MatterportFrame />
-</body>
+  <CesiumFrame />
+</BaseLayout>
