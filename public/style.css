@@ -339,4 +339,10 @@ h1 {
   }
   
   
-  
+  h2 span {
+    color: white;
+    /* underline */
+    text-decoration: underline;
+    margin-left: 1rem;
+    cursor: pointer;
+  }

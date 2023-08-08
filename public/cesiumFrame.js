@@ -139,7 +139,6 @@ export function flyToInitial() {
 }
 flyToInitial()
 
-
 const radioButtons = document.querySelectorAll('input[name="which_view"]');
 const tileOption = document.getElementById('tileOption');
     
@@ -204,7 +203,16 @@ export function flyToDirectionAndPosition(direction, position, right = new Cesiu
   });
 }
 
-
+const resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', event => {
+  flyToInitial()
+  buildingsTileset.show = false
+  defaultTiles.checked = false
+  tileOption.className = 'row'
+  radioButtons[0].checked = true
+  campusModel.show = false;
+  ictModel.show = true;
+});
 
 document.addEventListener('keydown', function(event) {
   console.log(viewer.scene.camera)
