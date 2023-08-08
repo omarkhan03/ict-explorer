@@ -1,21 +1,30 @@
 ---
-import CesiumFrame from '../components/cesiumFrame.html';
-import MatterportFrame from '../components/matterportFrame.html';
-import App from '../components/sidenav.astro';
+import CesiumFrame from "../components/cesiumFrame.html";
+import MatterportFrame from "../components/MatterportFrame.astro";
+import App from "../components/sidenav.astro";
 ---
+
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICT Explorer + Room Finder</title>  
-	<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>ICT Explorer + Room Finder</title>
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  />
 </head>
 
 <body>
+  <div
+    class="webgl"
+    id="cesiumContainer"
+  >
+  </div>
 
-<div class="webgl" id="cesiumContainer"></div>
-
-<App></App>
-<CesiumFrame></CesiumFrame>
-<MatterportFrame></MatterportFrame>
-
+  <App />
+  <CesiumFrame />
+  <MatterportFrame />
 </body>

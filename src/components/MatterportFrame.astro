@@ -1,0 +1,62 @@
+<iframe
+  id="bottom-floors"
+  class="inactive"
+  width="740"
+  height="480"
+  src="/bundle/showcase.html?m=NKou1YPtX6Q&applicationKey=tchcny4w75fpm678pxw3sndbc&play=1&qs=1"
+  frameborder="”0”"
+  allowfullscreen
+  allow="vr"
+></iframe>
+<iframe
+  id="top-floors"
+  class="inactive"
+  width="740"
+  height="480"
+  src="/bundle/showcase.html?m=tc8uSXHbBS6&applicationKey=tchcny4w75fpm678pxw3sndbc&play=1&qs=1"
+  frameborder="”0”"
+  allowfullscreen
+  allow="vr"
+></iframe>
+
+<!--	HXI account code:
+	<iframe id="bottom-floors" class="inactive" width="740" height="480" src="/bundle/showcase.html?m=5J3mfjqkVjD&applicationKey=gq2x55e5x50i7h10d8k3uiu6d&play=1&qs=1" frameborder=”0” allowfullscreen allow="vr"></iframe>
+    <iframe id="top-floors" class="inactive" width="740" height="480" src="/bundle/showcase.html?m=dNdRhzEGrGY&applicationKey=gq2x55e5x50i7h10d8k3uiu6d&play=1&qs=1" frameborder=”0” allowfullscreen allow="vr"></iframe>
+	-->
+
+<script>
+  const showcase0 = document.getElementById("bottom-floors");
+  const showcaseWindow0 = showcase0.contentWindow;
+  let connected0 = false;
+  let mpSdk0;
+  showcase0.addEventListener("load", async function () {
+    try {
+      mpSdk0 = await showcaseWindow0.MP_SDK.connect(showcaseWindow0);
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+    connected0 = true;
+    console.log("Hello Bundle SDK", mpSdk0);
+  });
+
+  const showcase1 = document.getElementById("top-floors");
+  const showcaseWindow1 = showcase1.contentWindow;
+  let connected1 = false;
+  let mpSdk1;
+  showcase1.addEventListener("load", async function () {
+    try {
+      mpSdk1 = await showcaseWindow1.MP_SDK.connect(showcaseWindow1);
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+    connected1 = true;
+    console.log("Hello Bundle SDK", mpSdk1);
+  });
+</script>
+
+<script
+  type="module"
+  src="./matterport.js"
+></script>
