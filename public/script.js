@@ -120,24 +120,6 @@ goto.addEventListener('click', () => {
 // This hides everything except for the matterport iframe
 function activateMatterport (){
 
-    /*
-
-    direction:
-    {
-        "x": 0.9200000059730695,
-        "y": -0.13855138081700066,
-        "z": -0.3666108343778927
-    }
-
-    position:
-    {
-        "x": -1641758.8895907598,
-        "y": -3664891.752286862,
-        "z": 4940029.303949921
-    }
-
-    */
-
     let direction;
     let position;
 
@@ -179,10 +161,10 @@ function deactivateMatterport (){
     bottomFloorsFrame.className = "inactive"
     topFloorsFrame.className = "inactive"
     cesium.className = "webgl"
-    dropdowns.className = ""
+    dropdowns.className = "dropdowns"
     selectedFloor = null;
     goto.className = "goto-inactive"
-    goto.innerHTML = "Select a floor."
+    goto.innerHTML = "Select a floor"
 
     flyToInitial()
 }

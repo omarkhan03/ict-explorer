@@ -10,6 +10,10 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
     sceneModePicker: false,
     timeline: false,
     enableLighting: false,
+    baseLayerPicker: false,
+    geocoder: false,
+    selectionIndicator: false,
+
 });
 
 viewer.scene.light = new Cesium.DirectionalLight({

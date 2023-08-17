@@ -18,9 +18,14 @@ body
     overflow: hidden;
 }
 
-h1, h2, div, p, label{
+h1, h2, div, p, label, a {
     font-size: small;
     font-family: 'Roboto', sans-serif;
+}
+
+a {
+    margin-bottom: 1em;
+
 }
 
 
@@ -35,7 +40,7 @@ h1, h2, div, p, label{
 
 label {
     color: white;
-    transform: translateX(-40%) translateY(-35%);
+    transform: translateX(-40%) translateY(-50%);
     width: 30vw !important;
     height: 0.5vw;
 }
@@ -244,7 +249,7 @@ h1 {
 }
 
 @media (max-width: 30em) {
-    h1, h2, div, p, label {
+    h1, h2, div, p, label, a {
         font-size: smaller !important;
         font-family: 'Roboto', sans-serif;
     }
